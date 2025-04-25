@@ -1,0 +1,317 @@
+/* Dashboard Styling */
+:root {
+    --signin-col-1: #9bc48c;
+    --primary-bg: #314230;
+    --primary-col: #8ba17f;
+    --secondary-col: #18332f;
+    --tetiary-col: #f7f6f2;
+    --darker-primary: #002a30;
+    --accent-green: #5cb85c;
+    --error-red: #d9534f;
+    --form-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #f4f7f4;
+    --shadow-color: rgba(24, 51, 47, 0.15);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--tetiary-col);
+    color: var(--secondary-col);
+  }
+  
+  .dashboard-main {
+    flex-grow: 1;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  .dashboard-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--primary-col);
+    flex-wrap: wrap;
+  }
+  
+  .dashboard-header h1 {
+    color: var(--primary-bg);
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  .dashboard-tabs {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .tab-button {
+    background-color: var(--tetiary-col);
+    color: var(--primary-bg);
+    border: 1px solid var(--primary-col);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-button:hover {
+    background-color: var(--primary-col);
+    color: var(--tetiary-col);
+  }
+  
+  .tab-button.active {
+    background-color: var(--primary-bg);
+    color: var(--tetiary-col);
+  }
+  
+  .tab-tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--secondary-col);
+    color: var(--tetiary-col);
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+  }
+  
+  .tab-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Status Cards */
+  .status-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .status-cards-grid .Energy{
+    background-color: var(--primary-bg);
+    color: var(--tetiary-col);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Transaction Card */
+  /* Table Header Styling */
+.transaction-table thead {
+    background-color: var(--primary-col);
+  }
+  
+  .transaction-table thead th,
+  .transaction-table thead .MuiTableCell-head {
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Alternating Row Styling */
+  .transaction-table tbody tr:nth-of-type(even) {
+    background-color: var(--light-bg);
+  }
+  
+  .transaction-table tbody tr:nth-of-type(odd) {
+    background-color: var(--card-bg);
+  }
+  
+  .transaction-table tbody tr:hover {
+    background-color: var(--input-bg);
+    transition: background-color 0.3s ease;
+  }
+  
+  
+
+  
+  .card .card-header {
+    font-weight: 600;
+    background-color: var(--light-bg);
+    color: var(--primary-bg);
+  }
+  
+  
+  
+  
+  
+
+  /* Loading State */
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+  
+  .progress-bar {
+    width: 300px;
+    height: 8px;
+    background-color: var(--input-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: var(--accent-green);
+    animation: progress 1.5s ease-in-out infinite;
+    width: 30%;
+  }
+  
+  @keyframes progress {
+    0% {
+      width: 0%;
+      margin-left: 0%;
+    }
+    50% {
+      width: 30%;
+      margin-left: 70%;
+    }
+    100% {
+      width: 0%;
+      margin-left: 100%;
+    }
+  }
+  
+  /* Placeholder content for tabs */
+  .placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--form-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+  
+  .placeholder-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-bg);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .placeholder-svg {
+    width: 40px;
+    height: 40px;
+    color: var(--tetiary-col);
+  }
+  
+  .placeholder-content h2 {
+    color: var(--primary-bg);
+    margin-bottom: 1rem;
+  }
+  
+  .placeholder-content p {
+    color: var(--secondary-col);
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+  
+  .action-button {
+    background-color: var(--accent-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: var(--primary-bg);
+    transform: translateY(-2px);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .dashboard-tabs {
+      width: 100%;
+      overflow-x: auto;
+    }
+    
+    .transaction-grid {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    
+    .transaction-header {
+      display: none;
+    }
+    
+    .transaction-row {
+      padding: 1rem;
+      border: 1px solid var(--primary-col);
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .transaction-row span {
+      position: relative;
+      padding-left: 100px;
+      display: block;
+    }
+    
+    .transaction-row span:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 100px;
+      font-weight: 600;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  

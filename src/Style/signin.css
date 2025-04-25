@@ -1,0 +1,374 @@
+/* Font faces */
+@font-face {
+    font-family: 'AmbitBlack';
+    src: url(../assets/ambit/Ambit-Black.otf);
+}
+
+@font-face {
+    font-family: 'AmbitNormal';
+    src: url(../assets/ambit/Ambit-Regular.otf);
+}
+
+@font-face {
+    font-family: 'AmbitBold';
+    src: url(../assets/ambit/Ambit-Bold.otf);
+}
+
+@font-face {
+    font-family: 'AmbitThin';
+    src: url(../assets/ambit/Ambit-Thin.otf);
+}
+
+/* Colors */
+:root {
+    --signin-col-1: #9bc48c;
+    --primary-bg: #314230;
+    --primary-col: #8ba17f;
+    --secondary-col: #18332f;
+    --tetiary-col: #f7f6f2;
+    --darker-primary: #002a30;
+    --accent-green: #5cb85c;
+    --error-red: #d9534f;
+    --form-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #f4f7f4;
+    --shadow-color: rgba(24, 51, 47, 0.15);
+}
+
+
+.su-con {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--tetiary-col);
+    position: absolute;
+    font-family: 'AmbitNormal', sans-serif;
+}
+
+.su-con .center {
+    align-items: center;
+}
+
+.su-con .left-img {
+    position: relative;
+    max-width: 50%;
+    height: 100%;
+    z-index: 1;
+    box-shadow: 0 0 30px var(--shadow-color);
+}
+
+.su-con .left-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2000;
+    border-radius: 0 25px 25px 0;
+    transition: transform 0.5s ease;
+}
+
+.su-con .left-img img:hover {
+    transform: scale(1.02);
+}
+
+.su-con .left-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-col) 100%);
+    opacity: 0.6;
+    z-index: 1;
+    border-radius: 0 25px 25px 0;
+}
+
+.su-con .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.su-con .flex .form {
+    position: relative;
+    width: 85%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: var(--form-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.su-con .flex .form .bg-fig {
+    position: absolute;
+    top: 20%;
+    left: -50%;
+    color: var(--tetiary-col);
+    opacity: 0.025;
+    width: 80vw;
+    z-index: 0;
+}
+
+.su-con .flex .form .center {
+    text-align: center;
+}
+
+.su-con .flex .form .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5em 0;
+}
+
+.su-con .flex .form .divider p {
+    font-family: 'AmbitBold';
+    color: var(--secondary-col);
+    margin: 0 10px;
+}
+
+.su-con .flex .form .divider::before,
+.su-con .flex .form .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid var(--primary-col);
+    margin: 0 10px;
+}
+
+.su-con .flex .form input {
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    cursor: text;
+    font-size: 1rem;
+    color: var(--secondary-col);
+    font-family: 'AmbitNormal';
+    transition: all 0.3s ease;
+    background-color: var(--input-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) inset;
+}
+
+.su-con .flex .form input:focus {
+    box-shadow: 0 0 0 2px var(--primary-col);
+    transform: translateY(-2px);
+}
+
+.su-con .flex .form label {
+    font-family: 'AmbitBold';
+    margin-bottom: 0.2em;
+    color: var(--secondary-col);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    display: block;
+    transition: color 0.3s ease;
+    text-align: left;
+    padding-left: 0;
+}
+
+.su-con .flex .form div:focus-within label {
+    color: var(--primary-col);
+}
+
+.su-con .flex .form h1 {
+    font-family: 'AmbitBlack';
+    color: var(--primary-col);
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+}
+
+.su-con .flex .form h1 span {
+    color: var(--secondary-col);
+    font-family: 'AmbitBlack';
+    font-weight: 900;
+    display: inline-block;
+    position: relative;
+}
+
+.su-con .flex .form h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+}
+
+.su-con .flex .form .fn-ln {
+    font-family: 'AmbitBold';
+    color: var(--secondary-col);
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 0.5rem;
+}
+
+.su-con .flex .form .fn-ln input {
+    cursor: text;
+    z-index: 100;
+}
+
+.su-con .flex .form .fn-ln div {
+    padding: 0;
+    margin: 0;
+}
+
+.su-con .flex .form .fn-ln div .in {
+    width: 100%;
+    padding: 0.8em 1em;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.su-con .flex .form .fn-ln .su {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 0.8rem;
+    grid-column: 1 / -1;
+}
+
+.su-con .flex .form .fn-ln .su input {
+    font-family: 'AmbitBold';
+    padding: 1em 0;
+    font-size: 1.1rem;
+    border: none;
+    width: 100%;
+    background-color: var(--secondary-col);
+    color: var(--tetiary-col);
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(24, 51, 47, 0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.su-con .flex .form .fn-ln .su input:hover {
+    background-color: var(--accent-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(92, 184, 92, 0.4);
+}
+
+.su-con .flex .form .fn-ln .su input:active {
+    transform: translateY(-1px);
+}
+
+.su-con .flex .form .alt-su {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+
+.su-con .flex .form .alt-su button {
+    padding: 0.8em;
+    border-radius: 8px;
+    border: 2px solid var(--primary-col);
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'AmbitBold';
+    color: var(--primary-col);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.su-con .flex .form .alt-su button:hover {
+    background-color: var(--primary-col);
+    color: white;
+}
+
+.su-con .flex .form .alt-su button img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.su-con .flex .form .alt-su button:hover img {
+    transform: scale(1.1);
+}
+
+.success-message {
+    background-color: rgba(212, 237, 218, 0.9);
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'AmbitBold';
+    box-shadow: 0 4px 10px rgba(92, 184, 92, 0.2);
+    animation: slideDown 0.5s ease-out;
+    border-left: 4px solid #5cb85c;
+}
+.signup-link, .forgot-password{
+    text-align: left;
+}
+.error {
+    background-color: rgba(248, 215, 218, 0.9);
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'AmbitBold';
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+    animation: slideDown 0.5s ease-out;
+    border-left: 4px solid #dc3545;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+@media (max-width: 992px) {
+    .su-con {
+        flex-direction: column;
+        overflow-y: auto;
+        height: auto;
+    }
+    
+    .su-con .left-img {
+        max-width: 100%;
+        height: 30vh;
+    }
+    
+    .su-con .left-img img,
+    .su-con .left-img .overlay {
+        border-radius: 0 0 25px 25px;
+    }
+    
+    .su-con .flex {
+        padding: 2rem 1rem;
+    }
+    
+    .su-con .flex .form {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .su-con .flex .form h1 {
+        font-size: 2em;
+    }
+}

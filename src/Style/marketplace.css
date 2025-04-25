@@ -1,0 +1,174 @@
+
+:root {
+    --signin-col-1: #9bc48c;
+    --primary-bg: #314230;
+    --primary-col: #8ba17f;
+    --secondary-col: #18332f;
+    --tetiary-col: #f7f6f2;
+    --darker-primary: #002a30;
+    --accent-green: #5cb85c;
+    --error-red: #d9534f;
+    --form-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #f4f7f4;
+    --shadow-color: rgba(24, 51, 47, 0.15);
+  }
+  
+  
+  .MuiBox-root[component="main"] {
+    background-color: var(--tetiary-col);
+  }
+  
+  
+  .MuiTypography-h4 {
+    color: var(--primary-bg);
+    font-weight: 600;
+  }
+  
+  .MuiTypography-body1, .MuiTypography-body2 {
+    color: var(--secondary-col);
+  }
+  
+  
+  .MuiCard-root {
+    background-color: var(--form-bg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 161, 127, 0.2);
+  }
+  
+  .MuiCardContent-root {
+    padding: 20px;
+  }
+  
+
+  .MuiButton-root {
+    text-transform: none;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .MuiButton-root:hover {
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  .MuiButton-contained {
+    background-color: var(--primary-bg);
+    color: var(--tetiary-col);
+  }
+  
+  .MuiButton-contained:hover {
+    background-color: var(--darker-primary);
+  }
+  
+  .MuiTextField-root {
+    margin-bottom: 10px;
+  }
+  
+  .MuiOutlinedInput-root {
+    background-color: var(--input-bg);
+    border-radius: 8px;
+  }
+  
+  .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-col);
+  }
+  
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-bg);
+  }
+  
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-bg);
+    border-width: 2px;
+  }
+  
+  .MuiInputLabel-root {
+    color: var(--secondary-col);
+  }
+  
+  .MuiInputLabel-root.Mui-focused {
+    color: var(--primary-bg);
+  }
+  
+  .MuiMenuItem-root {
+    color: var(--secondary-col);
+  }
+  
+  .MuiMenuItem-root:hover, 
+  .MuiMenuItem-root.Mui-selected {
+    background-color: rgba(155, 196, 140, 0.1);
+  }
+  
+  .MuiMenuItem-root.Mui-selected:hover {
+    background-color: rgba(155, 196, 140, 0.2);
+  }
+ 
+  .MuiCircularProgress-root {
+    color: var(--primary-col);
+  }
+  
+
+  .MuiSvgIcon-root {
+    color: var(--primary-col);
+  }
+  
+  
+  .MuiGrid-container {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  
+  .energy-listing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .energy-listing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
+  
+  .energy-listing-card .MuiCardMedia-root {
+    height: 180px;
+  }
+  
+  .energy-listing-card .card-price {
+    color: var(--primary-bg);
+    font-weight: 600;
+  }
+  
+  .energy-listing-card .card-energy-type {
+    background-color: var(--signin-col-1);
+    color: var(--darker-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .energy-listing-card .card-seller-info {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .energy-listing-card .card-seller-rating {
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+  
+
+  .no-results-card {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  
+  .MuiContainer-root {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }

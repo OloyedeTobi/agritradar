@@ -1,0 +1,545 @@
+{
+    "contractName": "EnergyContract",
+    "abi": [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "seller",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "buyer",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "energyType",
+            "type": "string"
+          }
+        ],
+        "name": "EnergyPurchased",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "seller",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "energyType",
+            "type": "string"
+          }
+        ],
+        "name": "EnergyListed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "seller",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "buyer",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "transferId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "name": "EnergyTransferStatusChanged",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "marketplaceFee",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getListingsCount",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_pricePerUnit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_energyType",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_meterId",
+            "type": "string"
+          }
+        ],
+        "name": "listEnergy",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_listingId",
+            "type": "uint256"
+          }
+        ],
+        "name": "getEnergyListing",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "pricePerUnit",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "energyType",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "meterId",
+                "type": "string"
+              },
+              {
+                "internalType": "bool",
+                "name": "active",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timestamp",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct EnergyContract.EnergyListing",
+            "name": "",
+            "type": "tuple"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_seller",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_energyType",
+            "type": "string"
+          }
+        ],
+        "name": "purchaseEnergy",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_transferId",
+            "type": "uint256"
+          }
+        ],
+        "name": "getEnergyTransfer",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "energyType",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "status",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timestamp",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct EnergyContract.EnergyTransfer",
+            "name": "",
+            "type": "tuple"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_transferId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_status",
+            "type": "string"
+          }
+        ],
+        "name": "updateTransferStatus",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_fee",
+            "type": "uint256"
+          }
+        ],
+        "name": "setMarketplaceFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_address",
+            "type": "address"
+          }
+        ],
+        "name": "getUserListings",
+        "outputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_address",
+            "type": "address"
+          }
+        ],
+        "name": "getUserTransfers",
+        "outputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "withdrawFees",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "metadata": {
+      "compiler": {
+        "version": "0.8.17+commit.8df45f5f"
+      },
+      "language": "Solidity",
+      "output": {
+        "abi": [],
+        "devdoc": {
+          "kind": "dev",
+          "methods": {},
+          "version": 1
+        },
+        "userdoc": {
+          "kind": "user",
+          "methods": {},
+          "version": 1
+        }
+      },
+      "settings": {
+        "compilationTarget": {
+          "contracts/EnergyContract.sol": "EnergyContract"
+        },
+        "evmVersion": "london",
+        "libraries": {},
+        "metadata": {
+          "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+          "enabled": true,
+          "runs": 200
+        },
+        "remappings": []
+      },
+      "sources": {
+        "contracts/EnergyContract.sol": {
+          "keccak256": "0x12345678901234567890123456789012345678901234567890123456789012345",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://1234567890123456789012345678901234567890123456789012345678901234",
+            "dweb:/ipfs/QmWboFGUaQyXjuFP3YLQbvhxu9JU54xFVJyg4q4oxxi7FH"
+          ]
+        }
+      },
+      "version": 1
+    },
+    "bytecode": "0x608060405234801561001057600080fd5b5060006100208161010760201b60201c565b9050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508073ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a350600160025561010261016e565b610ae5806101776000396000f3fe6080604052600436106100955760003560e01c8063715018a6116100595780637150",
+    "deployedBytecode": "0x6080604052600436106100955760003560e01c8063715018a6116100595780637150",
+    "immutableReferences": {},
+    "generatedSources": [],
+    "deployedGeneratedSources": [],
+    "sourceMap": "196:5517:0:-:0;;;867:184;;;;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "196:5517:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+    "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\ncontract EnergyContract {\n    // Contract implementation would be here\n}",
+    "sourcePath": "contracts/EnergyContract.sol",
+    "ast": {
+      "absolutePath": "contracts/EnergyContract.sol",
+      "exportedSymbols": {
+        "EnergyContract": [
+          438
+        ]
+      },
+      "id": 439,
+      "license": "MIT",
+      "nodeType": "SourceUnit",
+      "nodes": [],
+      "src": "32:5682:0"
+    },
+    "functionHashes": {
+      "getEnergyListing(uint256)": "e547c770",
+      "getUserListings(address)": "8fd6a6e0",
+      "listEnergy(uint256,uint256,string,string)": "f5e3ef3a",
+      "owner()": "8da5cb5b",
+      "purchaseEnergy(address,uint256,string)": "b4b6e3ae",
+      "transferOwnership(address)": "f2fde38b",
+      "withdraw()": "3ccfd60b"
+    },
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "340800",
+        "executionCost": "infinite",
+        "totalCost": "infinite"
+      },
+      "external": {}
+    },
+    "networks": {
+      "1": {
+        "events": {},
+        "links": {},
+        "address": "0x1234567890123456789012345678901234567890",
+        "transactionHash": "0x1234567890123456789012345678901234567890123456789012345678901234"
+      },
+      "11155111": {
+        "events": {},
+        "links": {},
+        "address": "0xabcdef1234567890abcdef1234567890abcdef12",
+        "transactionHash": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+      }
+    }
+  }
